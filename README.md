@@ -46,10 +46,20 @@
 
 一句話：**一般 MLOps 管的是「模型的生命週期」，Edge Impulse 管的是「模型變成裝置韌體的生產線」**。它弱在實驗彈性與大模型，強在 DSP+量化+硬體資源估計這段一般工具鏈完全沒有的東西。
 
-## 這個資料夾
+## 這個 repo
 
-- `data/keyword-spotting/` — 已下載並解壓的官方開源資料集（248MB、1,478 筆、34 分鐘音訊）：`helloworld` / `noise` / `unknown` 三類，Edge Impulse exporter 格式（含 `info.labels`，上傳時自動帶 label 與 train/test 切分）
+- `report.html` / `report.pdf` — 對外報告：pipeline 各階段 I/O、結果、deliverables、掃碼試玩 QR
 - `WALKTHROUGH.md` — **照著做**：web 端 30–45 分鐘完整 pipeline 步驟
+- `cjr96-project-1-cpp-mcu-v2-impulse-#1/` — Studio 匯出的零依賴 C++ 推論套件（int8 + EON）
+- 本專案的 Edge Impulse 公開頁（資料、模型、pipeline 可檢視與 clone）：<https://studio.edgeimpulse.com/public/523486/latest>
+
+## 資料集（不隨 repo 提供，請自行下載）
+
+- 下載：**[Audio Classification – Keyword Spotting（官方 zip 直鏈，約 110MB）](https://cdn.edgeimpulse.com/datasets/Audio+Classification+-+Keyword+Spotting.zip)**，說明頁見 [docs：Keyword spotting dataset](https://docs.edgeimpulse.com/docs/pre-built-datasets/keyword-spotting)
+- 內容：1,474 筆、約 34 分鐘音訊，三類 `helloworld` / `noise` / `unknown`，Edge Impulse exporter 格式（含 `info.labels`，上傳 Studio 時自動帶 label 與 train/test 切分）
+- 授權：由 Edge Impulse 公開提供下載作教學用途；其中 `unknown`/`noise` 樣本源自 Google [Speech Commands](https://arxiv.org/abs/1804.03209) 資料集（CC BY 4.0），`helloworld` 為 Edge Impulse 自行收集。整包未附明確 LICENSE 檔，商用前請自行確認
+- 使用：解壓後把整個資料夾丟到 `data/` 底下（`data/` 已被 `.gitignore` 排除），照 `WALKTHROUGH.md` Step 2 上傳
+- 已知打包問題：testing 資料夾內 17 個 `helloworld` 檔與 training 重複，Studio 上傳去重後 test set 會缺 helloworld 類——需手動從 training 移幾筆過去再 retrain
 
 ## Sources
 
