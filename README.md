@@ -25,7 +25,7 @@ Keyword spotting ("hello world") built end-to-end on [Edge Impulse](https://edge
 ## Layout
 
 ```
-report.pdf                             full report (pipeline I/O, results, QR demo)
+tinyml_demo.pdf                        full report (pipeline I/O, results, QR demo)
 WALKTHROUGH.md                         step-by-step Studio guide (zh-TW, 30–45 min)
 cjr96-project-1-cpp-mcu-v2-impulse-#1/ exported zero-dependency C++ inference package
 ```
